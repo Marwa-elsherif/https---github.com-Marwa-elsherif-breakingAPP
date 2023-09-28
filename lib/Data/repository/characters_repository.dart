@@ -5,7 +5,7 @@ import 'package:breaking/Data/web_services/characters_web_services.dart';
 class CharactersRepository {
   CharactersWebServices? charactersWebServices;
 
-  CharactersRepository(CharactersWebServices charactersWebServices);
+  CharactersRepository(this.charactersWebServices);
   Future<List<Character>> getAllCharacters() async {
     final characters = await charactersWebServices!.getAllCharacters();
     print(characters.toString());

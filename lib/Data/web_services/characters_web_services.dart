@@ -1,4 +1,4 @@
-import 'package:breaking/constants/strings.dart';
+import '../../constants/strings.dart';
 import 'package:dio/dio.dart';
 
 class CharactersWebServices {
@@ -7,8 +7,8 @@ class CharactersWebServices {
     BaseOptions options = BaseOptions(
       baseUrl: baseUrl,
       receiveDataWhenStatusError: true,
-      connectTimeout: const Duration(seconds: 10),
-      receiveTimeout: const Duration(seconds: 10),
+      connectTimeout: const Duration(seconds: 20),
+      receiveTimeout: const Duration(seconds: 20),
     );
     dio = Dio(options);
   }
@@ -16,7 +16,7 @@ class CharactersWebServices {
     try {
       Response response = await dio.get('character');
       print(response.data.toString());
-      return response.data;
+      return response.data['results'];
     } catch (e) {
       print(e.toString());
       return [];

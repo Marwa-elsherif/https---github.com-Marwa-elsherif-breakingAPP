@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:breaking/Data/models/characters.dart';
 import 'package:breaking/Data/repository/characters_repository.dart';
 import 'package:breaking/Data/web_services/characters_web_services.dart';
 import 'package:flutter/material.dart';
@@ -26,8 +27,9 @@ class AppRouter {
           ),
         );
       case characterDetailsScreen:
+        final character = settings.arguments as Character;
         return MaterialPageRoute(
-            builder: (_) => const CharacterDetailsScreen());
+            builder: (_) => CharacterDetailsScreen(character: character));
     }
   }
 }
